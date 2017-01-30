@@ -1,0 +1,27 @@
+<?php 
+$objectManager =  \Magento\Framework\App\ObjectManager::getInstance();
+$orderData = $objectManager->create('Magento\Checkout\Model\Session');
+/*echo "<pre>";print_r($orderData->getData());
+$customerSession = $objectManager->create('Magento\Customer\Model\Session');
+echo $customerSession->getCustomer()->getEmail();
+$order = $objectManager->create('Magento\Sales\Model\Order')->load();
+$shippingAddress = $order->getShippingAddress();
+echo $shippingAddress->getEmail();*/
+/*  $orderData1 = $objectManager->create('Magento\Sales\Model\Order');
+	echo "<pre>";print_r($orderData1->getData());*/
+//echo $orderData->getlast_real_order_id();
+//echo $orderData->getData('shipping_description'); //shipping_description
+echo "Your order is:".$orderData->getlast_real_order_id().'<br>';
+$accountdetail = $objectManager->get('Magento\Framework\App\Config\ScopeConfigInterface')->getValue('payment/banktransfer/instructions');
+ $acc=explode(',',$accountdetail);
+ foreach ($acc as $key => $value) {
+     # code...
+    echo $value .'<br>';
+ }
+ echo '<br>';
+?>
+<div class="actions-toolbar">
+    <div class="primary">
+        <a class="action primary continue" href="<?php /* @escapeNotVerified */ echo $block->getUrl() ?>"><span><?php /* @escapeNotVerified */ echo __('Continue Shopping') ?></span></a>
+    </div>       
+</div>

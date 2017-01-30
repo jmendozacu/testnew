@@ -4225,5 +4225,4 @@ return [
     ['Magento\Catalog\Test\Unit\Webapi\Product\Option\Type\File\ValidatorTest'],
     ['Magento\Framework\Search\Document', 'Magento\Framework\Api\Search\Document'],
     ['Magento\Framework\Search\DocumentField'],
-    ['Magento\Quote\Setup\Recurring'],
 ];

@@ -56,7 +56,7 @@ $product->setTypeId(
 )->setId(
     444
 )->setAttributeSetId(
-    4
+    5
 )->setStoreId(
     1
 )->setWebsiteIds(

@@ -6,6 +6,8 @@
 namespace Magento\TestFramework;
 
 use Magento\Framework\Autoload\AutoloaderInterface;
+use Magento\Framework\Filesystem;
+use Magento\Framework\Filesystem\DriverInterface;
 use Magento\Framework\App\Filesystem\DirectoryList;
 use Magento\Framework\App\DeploymentConfig;
 use Magento\Framework\Config\ConfigOptionsListConstants;
@@ -557,6 +559,7 @@ class Application
         /** @var $objectManager \Magento\TestFramework\ObjectManager */
         $objectManager = \Magento\TestFramework\Helper\Bootstrap::getObjectManager();
         $objectManager->clearCache();
+
         \Magento\Framework\Data\Form::setElementRenderer(null);
         \Magento\Framework\Data\Form::setFieldsetRenderer(null);
         \Magento\Framework\Data\Form::setFieldsetElementRenderer(null);

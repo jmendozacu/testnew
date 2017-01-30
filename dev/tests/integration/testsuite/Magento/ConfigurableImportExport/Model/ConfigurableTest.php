@@ -30,10 +30,8 @@ class ConfigurableTest extends AbstractProductExportImportTestCase
      */
     protected function assertEqualsSpecificAttributes($expectedProduct, $actualProduct)
     {
-        /** @var \Magento\ConfigurableProduct\Model\Product\Type\Configurable $productType */
-        $productType = $expectedProduct->getTypeInstance();
-        $expectedAssociatedProducts = $productType->getUsedProductCollection($expectedProduct);
-        $actualAssociatedProducts = iterator_to_array($productType->getUsedProductCollection($actualProduct));
+        $expectedAssociatedProducts = $expectedProduct->getTypeInstance()->getUsedProducts($expectedProduct);
+        $actualAssociatedProducts = $actualProduct->getTypeInstance()->getUsedProducts($actualProduct);
 
         $expectedAssociatedProductSkus = [];
         $actualAssociatedProductSkus = [];
@@ -41,6 +39,7 @@ class ConfigurableTest extends AbstractProductExportImportTestCase
             $expectedAssociatedProductSkus[] = $associatedProduct->getSku();
             $actualAssociatedProductSkus[] = $actualAssociatedProducts[$i]->getSku();
         }
+
 
         $this->assertEquals($expectedAssociatedProductSkus, $actualAssociatedProductSkus);
 
@@ -93,20 +92,5 @@ class ConfigurableTest extends AbstractProductExportImportTestCase
             $data[$key][2] = array_merge($value[2], ['_cache_instance_product_set_attributes']);
         }
         return $data;
-    }
-
-    /**
-     * @magentoAppArea adminhtml
-     * @magentoDbIsolation enabled
-     * @magentoAppIsolation enabled
-     *
-     * @param array $fixtures
-     * @param string[] $skus
-     * @param string[] $skippedAttributes
-     * @dataProvider importReplaceDataProvider
-     */
-    public function testImportReplace($fixtures, $skus, $skippedAttributes = [])
-    {
-        parent::testImportReplace($fixtures, $skus, $skippedAttributes);
     }
 }

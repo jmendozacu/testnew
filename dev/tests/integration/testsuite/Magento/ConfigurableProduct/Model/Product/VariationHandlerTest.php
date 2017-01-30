@@ -9,7 +9,6 @@
 namespace Magento\ConfigurableProduct\Model\Product;
 
 use Magento\TestFramework\Helper\Bootstrap;
-use Magento\Catalog\Api\ProductRepositoryInterface;
 
 /**
  * @magentoAppIsolation enabled
@@ -28,8 +27,10 @@ class VariationHandlerTest extends \PHPUnit_Framework_TestCase
 
     protected function setUp()
     {
-        $productRepository = Bootstrap::getObjectManager()->create(ProductRepositoryInterface::class);
-        $this->_product = $productRepository->get('configurable');
+        $this->_product = Bootstrap::getObjectManager()->create(
+            'Magento\Catalog\Model\Product'
+        );
+        $this->_product->load(1);
 
         $this->_model = Bootstrap::getObjectManager()->create(
             'Magento\ConfigurableProduct\Model\Product\VariationHandler'

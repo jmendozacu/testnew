@@ -9,6 +9,7 @@ define([
             if (!prodUrl.length) {
                 return false;
             }
+
             var url = window.weltpixel_quickview.baseUrl + 'weltpixel_quickview/index/updatecart';
             var showMiniCart = parseInt(window.weltpixel_quickview.showMiniCart);
 
@@ -49,4 +50,5 @@ define([
             });
         }
     };
+
 });

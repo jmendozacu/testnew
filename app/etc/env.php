@@ -6,7 +6,7 @@ return array (
   ),
   'crypt' => 
   array (
-    'key' => '842c608536159c450018929260315b0c',
+    'key' => 'a3f273695738ea9cb60759b9cd567854',
   ),
   'session' => 
   array (
@@ -20,7 +20,7 @@ return array (
       'default' => 
       array (
         'host' => 'localhost',
-        'dbname' => 'magento2',
+        'dbname' => 'porto2_quick',
         'username' => 'root',
         'password' => 'tailored',
         'active' => '1',
@@ -35,7 +35,7 @@ return array (
     ),
   ),
   'x-frame-options' => 'SAMEORIGIN',
-  'MAGE_MODE' => 'default',
+  'MAGE_MODE' => 'developer',
   'cache_types' => 
   array (
     'config' => 0,
@@ -51,9 +51,10 @@ return array (
     'config_integration_api' => 0,
     'translate' => 0,
     'config_webservice' => 0,
+    'compiled_config' => 1,
   ),
   'install' => 
   array (
-    'date' => 'Tue, 03 Jan 2017 13:42:25 +0000',
+    'date' => 'Thu, 17 Nov 2016 13:59:45 +0000',
   ),
 );

@@ -112,11 +112,8 @@ class Sidebar extends Block
      */
     public function clickBraintreePaypalButton()
     {
-        $button = $this->_rootElement->find($this->braintreePaypalCheckoutButton, Locator::SELECTOR_XPATH);
-        $this->browser->waitUntil(function () use ($button) {
-            return !$button->isDisabled() ?: null;
-        });
-        $button->click();
+        $this->_rootElement->find($this->braintreePaypalCheckoutButton, Locator::SELECTOR_XPATH)
+            ->click();
     }
 
     /**

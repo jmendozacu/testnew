@@ -339,12 +339,7 @@ class IndexTest extends \Magento\TestFramework\TestCase\AbstractBackendControlle
         $this->assertEquals(1, $subscriber->getStatus());
 
         $post = [
-            'customer' => [
-                'entity_id' => $customerId,
-                'email' => 'customer@example.com',
-                'firstname' => 'test firstname',
-                'lastname' => 'test lastname',
-            ],
+            'customer' => ['entity_id' => $customerId],
             'subscription' => 'false'
         ];
         $this->getRequest()->setPostValue($post);

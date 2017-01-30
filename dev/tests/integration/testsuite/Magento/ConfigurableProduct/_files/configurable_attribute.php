@@ -54,9 +54,8 @@ if (!$attribute->getId()) {
     );
 
     $attributeRepository->save($attribute);
-
-    /* Assign attribute to attribute set */
-    $installer->addAttributeToGroup('catalog_product', 'Default', 'General', $attribute->getId());
 }
 
+/* Assign attribute to attribute set */
+$installer->addAttributeToGroup('catalog_product', 'Default', 'General', $attribute->getId());
 $eavConfig->clear();
